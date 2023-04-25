@@ -15,6 +15,16 @@ export default function Alpha() {
         setReference(Math.floor(Math.random() * 10000000))
     }, [])
 
+    function reset() {
+        setReference(Math.floor(Math.random() * 10000000))
+        setProject('')
+        setHoldTime('')
+        setEntryPrice('')
+        setDescription('')
+        setCaller('')
+        setLinks('')
+    }
+
     let params = {
         username: "Apex Alpha",
         embeds: [{
@@ -70,18 +80,18 @@ export default function Alpha() {
                 <Flex w='20%' direction='column' align='center' justify='space-evenly'>
                     <Heading mb='5%'>Apex Alpha Form</Heading>
                     <Stack w='100%' spacing={6}>
-                            <Input onChange={(e) => setProject(e.target.value)} placeholder='Name of Project' />
-                            <Input onChange={(e) => setHoldTime(e.target.value)} placeholder='Hold Time Estimate' />
-                            <Input onChange={(e) => setEntryPrice(e.target.value)} placeholder='Entry Price' />
-                            <Textarea onChange={(e) => setDescription(e.target.value)} resize='none' placeholder='Description'/>
+                            <Input value={project} onChange={(e) => setProject(e.target.value)} placeholder='Name of Project' />
+                            <Input value={holdTime} onChange={(e) => setHoldTime(e.target.value)} placeholder='Hold Time Estimate' />
+                            <Input value={entryPrice} onChange={(e) => setEntryPrice(e.target.value)} placeholder='Entry Price' />
+                            <Textarea value={description} onChange={(e) => setDescription(e.target.value)} resize='none' placeholder='Description'/>
                             <Select onChange={(e) => setCaller(e.target.value)} placeholder='Alpha Caller'>
                                 <option value='668652608982089729'>Notice</option>
                                 <option value='513560912750313478'>NatoshiNakamoto</option>
                             </Select>
                             <Input disabled value={'ReferenceID: ' + reference}></Input>
-                            <Input onChange={(e) => setLinks(e.target.value)} placeholder='Links'></Input>
+                            <Input value={links} onChange={(e) => setLinks(e.target.value)} placeholder='Links'></Input>
                     </Stack>
-                    <Button onClick={() => sendWebhook(params)} mt='5%'>Submit</Button>
+                    <Button onClick={() => {sendWebhook(params); reset()}} mt='5%'>Submit</Button>
                 </Flex>
             </Flex>
         </>
