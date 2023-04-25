@@ -8,7 +8,8 @@ export default function Home() {
   const [userURL, setUserURL] = useState('')
   console.log(session)
   //bgColor='#5865f2'
-
+  
+  //checks roles for next page
   async function goToDash() {
     if (session.user.guild.roles.includes('1090105757271339198')) {
       window.location.href='/alpha'
