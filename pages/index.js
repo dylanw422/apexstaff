@@ -5,7 +5,6 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 
 export default function Home() {
   const{ data: session } = useSession()
-  const [userURL, setUserURL] = useState('')
   console.log(session)
   //bgColor='#5865f2'
   
