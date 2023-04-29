@@ -3,29 +3,31 @@ import { Flex, Text, Heading, Button, Image } from '@chakra-ui/react'
 import React, { useState, useEffect } from 'react'
 import Alpha from "@/components/Alpha"
 
-// {session ? session.user.guild.roles.includes('1094476893547397130') ? <Alpha /> : <Text>401: Unauthorized</Text> : <Text>You're Not Signed In. Go <a style={{textDecoration: 'underline'}} href='/'>Home</a></Text>}
+// {session ? discord.roles.includes('1094476893547397130') ? <Alpha /> : <Text>You do not have access to this page.</Text> : <Text>You're Not Signed In. Go <a href='/'>Home</a></Text>}
 
 export default function AlphaDashboard() {
     const { data: session } = useSession()
-    const [discord, setDiscord] = useState()
+    const [discordData, setDiscordData] = useState()
+    console.log(session)
 
-    async function discordData() {
+    async function getDiscordData() {
         await fetch('https://discord.com/api/users/@me/guilds/1081469674807640144/member', {
             headers: {
                 Authorization: `Bearer ${session.accessToken}`,
                 "Content-Type": 'application/json'
             }
-        }).then(res => res.json()).then(data => setDiscord(data));
+        }).then(res => res.json()).then(data => setDiscordData(data));
     }
+    
     useEffect(() => {
         if (session) {
-            discordData();
+            getDiscordData();
         }
-    }, [])
+    }, [session])
 
     return (
         <> 
-            {session ? discord.roles.includes('1094476893547397130') ? <Alpha /> : <Text>You do not have access to this page.</Text> : <Text>You're Not Signed In. Go <a href='/'>Home</a></Text>}
+            {session ? discordData.roles.includes('1094476893547397130') ? <Alpha /> : <Text>You do not have access to this page.</Text> : <Text>You're Not Signed In. Go <a href='/'>Home</a></Text>}
         </>
     )
 }
