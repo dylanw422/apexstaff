@@ -15,12 +15,12 @@ export const authOptions = {
     async session({ session, token, user }) {
         session.accessToken = token.accessToken
         session.user.id = token.id
-        await fetch('https://discord.com/api/users/@me/guilds/1081469674807640144/member', {
+        /*await fetch('https://discord.com/api/users/@me/guilds/1081469674807640144/member', {
             headers: {
                 Authorization: `Bearer ${session.accessToken}`,
                 "Content-Type": 'application/json'
             }
-        }).then(res => res.json()).then(data => session.user.guild = data)
+        }).then(res => res.json()).then(data => session.user.guild = data)*/
 
         return session
     }

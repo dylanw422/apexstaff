@@ -9,11 +9,6 @@ export default function Home() {
   //bgColor='#5865f2'
   
   //checks roles for next page
-  async function goToDash() {
-    if (session.user.guild.roles.includes('1090105757271339198')) {
-      window.location.href='/alpha'
-    }
-  }
   
 
   return (
@@ -38,7 +33,7 @@ export default function Home() {
           </Flex>
           <Flex h='84%' justify='center' align='center' direction='column'>
             <Heading size='2xl'>Apex Dashboard</Heading>
-            {session ? <Button onClick={() => goToDash()} mt='5%'>Continue To Dashboard</Button> : <Button onClick={() => signIn('discord')} mt='5%' bgColor='#5865F2' color='white' _hover={{ bgColor: '#9da4f7'}}>Sign In With Discord</Button> }
+            {session ? <Button onClick={() => location.href='/alpha'} mt='5%'>Continue To Dashboard</Button> : <Button onClick={() => signIn('discord')} mt='5%' bgColor='#5865F2' color='white' _hover={{ bgColor: '#9da4f7'}}>Sign In With Discord</Button> }
           </Flex>
           <Flex h='7%' align='flex-end' justify='center'>
               <Text color='gray'>All Rights Reserved © Apex Labs 2023</Text>
