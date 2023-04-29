@@ -27,7 +27,7 @@ export default function AlphaDashboard() {
 
     return (
         <> 
-            {session ? discordData.roles.includes('1094476893547397130') ? <Alpha /> : <Text>You do not have access to this page.</Text> : <Text>You're Not Signed In. Go <a href='/'>Home</a></Text>}
+            {session ? discordData?.roles?.includes("1081469779199672421") ? <Alpha /> : <Text>You do not have access to this page.</Text> : <Text>You're Not Signed In. Go <a href='/'>Home</a></Text>}
         </>
     )
 }
