@@ -73,6 +73,8 @@ export default function Alpha() {
             setWebhook('https://discord.com/api/webhooks/1098839909042749510/8w0PFouvAGJQhGSQxNMsBDF5Bo-uxIjTdDODWInj8t9lhseOyBAxV-vK_FENjEFbLZu6')
         } else if (user === '363613133085999105') {
             setWebhook('https://discord.com/api/webhooks/1102326025825816586/tO1kx9jg5NUrZ3J96NMiMCUVR6foHwSEfs_r2iiXuq78RTZYYx2AKJmwU6LI83jshUIX')
+        } else if (user ==='919238943134863430') {
+            setWebhook('https://discord.com/api/webhooks/1102591962642649128/SHu6eQvyYaDjlTUvVSo8dobBEtrMC6peyQeeu2Ft6zvy8YOHBuOLIaIhvxJgro6HZvbT')
         }
     }
 
@@ -95,6 +97,7 @@ export default function Alpha() {
                             <Select onChange={(e) => {setCaller(e.target.value); configureWebhook(e.target.value)}} placeholder='Alpha Caller'>
                                 <option value='668652608982089729'>Notice</option>
                                 <option value='363613133085999105'>Coin Holder</option>
+                                <option value='919238943134863430'>Lkz</option>
                             </Select>
                             <Input disabled value={'ReferenceID: ' + reference}></Input>
                             <Input value={links} onChange={(e) => setLinks(e.target.value)} placeholder='Links'></Input>
